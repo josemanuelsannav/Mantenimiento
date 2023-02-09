@@ -12,12 +12,16 @@ public class Person {
 
     /**
      * Constructor de una persona con nombre,edad y genero
-     * @param name es el nombre
-     * @param age es la edad
-     * @param gender es el generogit
+     * @param name es el nombre, no puede ser vacio
+     * @param age es la edad,no puede ser negativo
+     * @param gender es el generogit no puede ser distinto de male o female
      */
 
     public Person(String name,int age,String gender){
+        assert (name.isEmpty());
+        assert (age>=0);
+        assert (!gender.equals("Male") && !gender.equals("Female"));
+
         this.name=name;
         this.age=age;
         this.gender=gender;
