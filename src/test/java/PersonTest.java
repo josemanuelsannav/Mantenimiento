@@ -2,6 +2,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 /*
 Casos de prueba
@@ -12,10 +15,12 @@ Casos de prueba
  */
 
 public class PersonTest {
-
+    Person p1,p2;
 
     @BeforeEach
     void setUp(){
+        p1=new Person("Juan",14,"Male");
+        p2=new Person("Juan",14,"Female");
     }
 
     @AfterEach
@@ -24,7 +29,25 @@ public class PersonTest {
 
     @Test
     void nombreCorrecto(){
-        Person p1=new Person("Juan",14,"Male");//todo correcto MALE
         assertEquals("Juan",p1.getName());
+    }
+
+    @Test
+    void edadCorrecta(){
+        assertEquals(14,p1.getAge());
+    }
+    @Test
+    void generoCorrecto(){
+        assertEquals("Male",p1.getGender());
+        assertEquals("Female",p2.getGender());
+    }
+
+    @Test
+    void averageAge(){
+        List<Person> persons=new ArrayList<Person>();
+        persons.add(p1);
+        persons.add(p2);
+        double[] valorEsperado={14,14};
+        assertEquals(valorEsperado,p1.averageAgePerGender(persons));
     }
 }
