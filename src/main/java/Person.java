@@ -18,15 +18,16 @@ public class Person {
      */
 
     public Person(String name,int age,String gender){
-        assert (name.isEmpty());
+        assert (!name.isEmpty());
         assert (age>=0);
-        assert (!gender.equals("Male") && !gender.equals("Female"));
+        assert (gender.equals("Male") || gender.equals("Female"));
 
         this.name=name;
         this.age=age;
         this.gender=gender;
     }
     public String getName(){return  this.name;}
+
     public int getAge(){return this.age;}
 
     public String getGender() {
@@ -37,13 +38,16 @@ public class Person {
      * Calcula la edad media de hombres y mujeres en una lista y
      * devuelve en un arary de dos elementos (el primero es la media en
      * hombres y el segundo en mujeres)
-     * @param persons es la lista de personas
+     * @param persons es la lista de personas no vacia
      * @return array de dos elementos con la media de edad de hombres y mujeres
      */
     public double[] averageAgePerGender(List<Person> persons){
+        assert (!persons.isEmpty());
+
         int contadorMale=0;
         int contadorFemale=0;
         double[] mediaEdad= {0,0};
+
         for(Person p : persons){
             if(p.gender.equals("Male")){
                 mediaEdad[0]=mediaEdad[0]+p.age;
@@ -55,6 +59,7 @@ public class Person {
         }
         mediaEdad[0]=mediaEdad[0]/contadorMale;
         mediaEdad[1]=mediaEdad[1]/contadorFemale;
+
         return mediaEdad;
     }
 }
