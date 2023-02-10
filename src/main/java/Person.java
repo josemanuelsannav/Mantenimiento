@@ -18,10 +18,20 @@ public class Person {
      */
 
     public Person(String name,int age,String gender){
+        /*
         assert (!name.isEmpty());
         assert (age>=0 && age<=115);
         assert (gender.equals("Male") || gender.equals("Female"));
-
+        */
+        if(name.isEmpty()){
+            throw new IllegalArgumentException("Nombre vacio");
+        }
+        if(age<0 || age>115){
+            throw new IllegalArgumentException("Edad incorrecta");
+        }
+        if(!gender.equals("Male") && !gender.equals("Female")){
+            throw new IllegalArgumentException("Genero incorrecto");
+        }
         this.name=name;
         this.age=age;
         this.gender=gender;
