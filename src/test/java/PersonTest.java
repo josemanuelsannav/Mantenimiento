@@ -48,6 +48,6 @@ public class PersonTest {
         persons.add(p1);
         persons.add(p2);
         double[] valorEsperado={14,14};
-        assertEquals(valorEsperado,p1.averageAgePerGender(persons));
+        assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
     }
 }

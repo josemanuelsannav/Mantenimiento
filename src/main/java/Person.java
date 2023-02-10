@@ -19,7 +19,7 @@ public class Person {
 
     public Person(String name,int age,String gender){
         assert (!name.isEmpty());
-        assert (age>=0);
+        assert (age>=0 && age<=115);
         assert (gender.equals("Male") || gender.equals("Female"));
 
         this.name=name;
