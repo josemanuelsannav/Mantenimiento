@@ -42,7 +42,6 @@ public class Person {
      * @return array de dos elementos con la media de edad de hombres y mujeres
      */
     public double[] averageAgePerGender(List<Person> persons){
-        assert (!persons.isEmpty());
 
         int contadorMale=0;
         int contadorFemale=0;
@@ -57,8 +56,13 @@ public class Person {
                 contadorFemale++;
             }
         }
-        mediaEdad[0]=mediaEdad[0]/contadorMale;
-        mediaEdad[1]=mediaEdad[1]/contadorFemale;
+        if(contadorMale!=0){
+            mediaEdad[0]=mediaEdad[0]/contadorMale;
+        }
+        if(contadorFemale!=0){
+            mediaEdad[1]=mediaEdad[1]/contadorFemale;
+        }
+
 
         return mediaEdad;
     }

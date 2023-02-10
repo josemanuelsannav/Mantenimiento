@@ -43,11 +43,31 @@ public class PersonTest {
     }
 
     @Test
-    void averageAge(){
+    void averageAgeOneManOneWoman(){
         List<Person> persons=new ArrayList<Person>();
         persons.add(p1);
         persons.add(p2);
         double[] valorEsperado={14,14};
+        assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
+    }
+    @Test
+    void averageAgeOneManNoWoman(){
+        List<Person> persons=new ArrayList<Person>();
+        persons.add(p1);
+        double[] valorEsperado={14,0};
+        assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
+    }
+    @Test
+    void averageAgeNoManOneWoman(){
+        List<Person> persons=new ArrayList<Person>();
+        persons.add(p2);
+        double[] valorEsperado={0,14};
+        assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
+    }
+    @Test
+    void averageAgeNoManNoWoman(){
+        List<Person> persons=new ArrayList<Person>();
+        double[] valorEsperado={0,0};
         assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
     }
 }
