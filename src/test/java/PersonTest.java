@@ -84,30 +84,18 @@ public class PersonTest {
     }
     @Test
     void IllegalArgumentExceptionEnNombre(){
-        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
-            throw new IllegalArgumentException("Nombre vacio");
-        });
-        assertEquals("Nombre vacio",exception.getMessage());
+        assertThrows(IllegalArgumentException.class,()->new Person("",12,"Male"));
     }
     @Test
     void IllegalArgumentExceptionEnEdadNegativa(){
-        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
-            throw new IllegalArgumentException("Edad incorrecta");
-        });
-        assertEquals("Edad incorrecta",exception.getMessage());
+        assertThrows(IllegalArgumentException.class,()->new Person("Juan",-1,"Male"));
     }
     @Test
     void IllegalArgumentExceptionEnEdadElevada(){
-        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
-            throw new IllegalArgumentException("Edad incorrecta");
-        });
-        assertEquals("Edad incorrecta",exception.getMessage());
+        assertThrows(IllegalArgumentException.class,()->new Person("Juan",1212,"Male"));
     }
     @Test
     void IllegalArgumentExceptionEnGenero(){
-        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
-            throw new IllegalArgumentException("Genero incorrecta");
-        });
-        assertEquals("Genero incorrecta",exception.getMessage());
+        assertThrows(IllegalArgumentException.class,()->new Person("Juan",12,"jfda"));
     }
 }
