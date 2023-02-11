@@ -73,4 +73,33 @@ public class PersonTest {
         double[] valorEsperado={0,0};
         assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
     }
+
+    @Test
+    void IllegalArgumentExceptionEnNombre(){
+        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
+            throw new IllegalArgumentException("Nombre vacio");
+        });
+        assertEquals("Nombre vacio",exception.getMessage());
+    }
+    @Test
+    void IllegalArgumentExceptionEnEdadNegativa(){
+        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
+            throw new IllegalArgumentException("Edad incorrecta");
+        });
+        assertEquals("Edad incorrecta",exception.getMessage());
+    }
+    @Test
+    void IllegalArgumentExceptionEnEdadElevada(){
+        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
+            throw new IllegalArgumentException("Edad incorrecta");
+        });
+        assertEquals("Edad incorrecta",exception.getMessage());
+    }
+    @Test
+    void IllegalArgumentExceptionEnGenero(){
+        IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
+            throw new IllegalArgumentException("Genero incorrecta");
+        });
+        assertEquals("Genero incorrecta",exception.getMessage());
+    }
 }
