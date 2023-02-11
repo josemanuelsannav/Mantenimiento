@@ -37,8 +37,11 @@ public class PersonTest {
         assertEquals(14,p1.getAge());
     }
     @Test
-    void generoCorrecto(){
+    void generoMaleCorrecto(){
         assertEquals("Male",p1.getGender());
+    }
+    @Test
+    void generoFemaleCorrecto(){
         assertEquals("Female",p2.getGender());
     }
 

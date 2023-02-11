@@ -13,7 +13,7 @@ public class Person {
     /**
      * Constructor de una persona con nombre,edad y genero
      * @param name es el nombre, no puede ser vacio
-     * @param age es la edad,no puede ser negativo
+     * @param age es la edad,no puede ser negativo ni superior a una cantidad
      * @param gender es el generogit no puede ser distinto de male o female
      */
 
@@ -58,12 +58,14 @@ public class Person {
         double[] mediaEdad= {0,0};
 
         for(Person p : persons){
-            if(p.gender.equals("Male")){
-                mediaEdad[0]=mediaEdad[0]+p.age;
-                contadorMale++;
-            }else{
-                mediaEdad[1]=mediaEdad[1]+p.age;
-                contadorFemale++;
+            if(p!=null) {
+                if (p.gender.equals("Male")) {
+                    mediaEdad[0] = mediaEdad[0] + p.age;
+                    contadorMale++;
+                } else {
+                    mediaEdad[1] = mediaEdad[1] + p.age;
+                    contadorFemale++;
+                }
             }
         }
         if(contadorMale!=0){
