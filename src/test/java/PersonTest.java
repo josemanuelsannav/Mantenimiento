@@ -73,7 +73,15 @@ public class PersonTest {
         double[] valorEsperado={0,0};
         assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
     }
-
+    @Test
+    void averageAgeSomeNullPerson(){
+        List<Person> persons=new ArrayList<Person>();
+        persons.add(p1) ;
+        persons.add(p2) ;
+        persons.add(null) ;
+        double[] valorEsperado={14,14};
+        assertArrayEquals(valorEsperado,p1.averageAgePerGender(persons));
+    }
     @Test
     void IllegalArgumentExceptionEnNombre(){
         IllegalArgumentException exception=assertThrows(IllegalArgumentException.class,()->{
