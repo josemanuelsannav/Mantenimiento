@@ -96,6 +96,6 @@ public class PersonTest {
     }
     @Test
     void IllegalArgumentExceptionEnGenero(){
-        assertThrows(IllegalArgumentException.class,()->new Person("Juan",12,"jfda"));
+        assertThrows(IllegalArgumentException.class,()->new Person("Juan",12,"jfdagit remote add origin https://github.com/josemanuelsannav/Mantenimiento.git"));
     }
 }
